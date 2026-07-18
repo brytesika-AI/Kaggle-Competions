@@ -100,10 +100,10 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
           </div>
           <div>
             <h3 className="text-xs font-extrabold text-slate-100 uppercase tracking-wider font-display">
-              Playground Chat
+              FleetMind
             </h3>
             <span className="text-[9px] text-slate-500 font-semibold block mt-0.5">
-              Secure Serverless AI Node
+              OPEA GenAI NetOps Copilot
             </span>
           </div>
         </div>
