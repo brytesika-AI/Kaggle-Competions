@@ -56,9 +56,9 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
     <div className="w-80 border-r border-slate-800 bg-slate-950 flex flex-col h-full overflow-hidden shrink-0">
       {/* Top Header */}
       <div className="p-4 border-b border-slate-800 flex items-center gap-2">
-        <Sparkles className="w-5 h-5 text-blue-500 animate-pulse" />
+        <Sparkles className="w-5 h-5 text-amber-500 animate-pulse" />
         <h2 className="text-sm font-extrabold text-white uppercase tracking-wider font-display">
-          Workers AI Models
+          @BryteSikaStrategy AI
         </h2>
       </div>
 
