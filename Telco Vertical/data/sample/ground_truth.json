@@ -1,0 +1,47 @@
+[
+  {
+    "scenario": "tuner_lock_cascade",
+    "affected_model": "Kestrel-1",
+    "affected_firmware": "v1.4.2",
+    "affected_region": "ZA-NC",
+    "device_count": 2,
+    "target_error": "TUN-E1042",
+    "description": "Firmware bug in Kestrel-1 v1.4.2 leads to tuner driver crashes under low-SNR conditions, causing reboot loops."
+  },
+  {
+    "scenario": "epoch_reset_ota",
+    "affected_model": "Weaver-Lite",
+    "affected_firmware": "v2.0.1",
+    "affected_region": "any",
+    "device_count": 9,
+    "target_error": "CLK-E0007",
+    "description": "Clock initialization failure on Weaver-Lite v2.0.1 causing timestamps to reset to 1970-01-01 epoch."
+  },
+  {
+    "scenario": "otp_read_storm",
+    "affected_model": "Ibis-4K",
+    "affected_firmware": "v3.1.0",
+    "affected_region": "any",
+    "device_count": 10,
+    "target_error": "SEC-E0311",
+    "description": "Secure OTP read storm on Ibis-4K v3.1.0. Error Flag=0 indicates benign retry; Flag=1 indicates hardware authentication failure."
+  },
+  {
+    "scenario": "ota_partial_brick",
+    "affected_model": "Kestrel-2",
+    "affected_firmware": "v2.0.0",
+    "affected_region": "ZA-EC",
+    "device_count": 4,
+    "target_error": "OTA-E0550",
+    "description": "Interrupted OTA update during power brownout on Kestrel-2 leaves devices in recovery boot loop."
+  },
+  {
+    "scenario": "memory_leak_slowburn",
+    "affected_model": "Weaver-Lite",
+    "affected_firmware": "v1.9.9",
+    "affected_region": "any",
+    "device_count": 3,
+    "target_error": "WDT-E0100",
+    "description": "Gradual memory leak over days on Weaver-Lite v1.9.9 ends in watchdog reboots due to application memory exhaustion."
+  }
+]

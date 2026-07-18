@@ -58,7 +58,6 @@ def generate_telemetry(devices_count: int, days: int, seed: int, out_dir: str):
     
     # Setup failure scenarios time range
     start_time = datetime(2026, 7, 1, 0, 0, 0, tzinfo=timezone.utc)
-    end_time = start_time + timedelta(days=days)
     
     # Choose affected subset of devices for each scenario
     ground_truth = []
@@ -292,7 +291,7 @@ def generate_telemetry(devices_count: int, days: int, seed: int, out_dir: str):
                                     "region": d["region"],
                                     "level": "WARN",
                                     "code": None,
-                                    "message": f"Low memory warning. Application session running active.",
+                                    "message": "Low memory warning. Application session running active.",
                                     "metrics": {"snr": current_snr, "free_mem": current_mem, "uptime": (day*24 + hour)*3600}
                                 }) + "\n")
                                 logs_written += 1

@@ -14,7 +14,7 @@
 
 import logging
 from enum import Enum
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 import httpx
 
 logger = logging.getLogger("fleetmind.orchestrator")

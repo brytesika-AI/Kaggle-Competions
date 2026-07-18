@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Copyright 2026 FleetMind Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,16 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -euo pipefail
+FROM python:3.11-slim
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# Install system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Run python auditor
-if [ -f "$PROJECT_ROOT/.venv/bin/python" ]; then
-    "$PROJECT_ROOT/.venv/bin/python" "$SCRIPT_DIR/license_audit.py"
-elif [ -f "$PROJECT_ROOT/.venv/Scripts/python.exe" ]; then
-    "$PROJECT_ROOT/.venv/Scripts/python.exe" "$SCRIPT_DIR/license_audit.py"
-else
-    python3 "$SCRIPT_DIR/license_audit.py" || python "$SCRIPT_DIR/license_audit.py"
-fi
+WORKDIR /app
+
+# Install python requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source code
+COPY fleetmind/ ./fleetmind/
+COPY data/ ./data/
+
+EXPOSE 8888
+
+# Run Uvicorn Gateway
+CMD ["uvicorn", "fleetmind.gateway.app:app", "--host", "0.0.0.0", "--port", "8888"]

@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Copyright 2026 FleetMind Authors
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,16 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -euo pipefail
+from fleetmind.synthgen.generator import generate_telemetry
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-
-# Run python auditor
-if [ -f "$PROJECT_ROOT/.venv/bin/python" ]; then
-    "$PROJECT_ROOT/.venv/bin/python" "$SCRIPT_DIR/license_audit.py"
-elif [ -f "$PROJECT_ROOT/.venv/Scripts/python.exe" ]; then
-    "$PROJECT_ROOT/.venv/Scripts/python.exe" "$SCRIPT_DIR/license_audit.py"
-else
-    python3 "$SCRIPT_DIR/license_audit.py" || python "$SCRIPT_DIR/license_audit.py"
-fi
+__all__ = ["generate_telemetry"]
