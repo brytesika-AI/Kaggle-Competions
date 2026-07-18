@@ -221,6 +221,9 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({
           <span>Send</span>
         </button>
       </form>
+      <div className="py-2.5 bg-slate-950/90 border-t border-slate-900/60 text-center text-[10px] text-slate-500 font-semibold tracking-wider font-display select-none">
+        Powered by <span className="text-amber-500/80">BrytesikaStratgy AI</span> • Secure Serverless LLM Node
+      </div>
     </div>
   );
 };
