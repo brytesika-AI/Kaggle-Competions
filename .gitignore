@@ -1,0 +1,33 @@
+# Root .gitignore for 1Kaggle Competions repository
+
+# Node dependencies
+**/node_modules/
+**/dist/
+**/dist-ssr/
+**/out/
+
+# Python / Jupyter
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/.ipynb_checkpoints/
+**/.virtualenv/
+**/venv/
+**/.env
+
+# Logs and databases
+**/*.log
+**/*.sqlite
+**/npm-debug.log*
+
+# Editor & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
